@@ -1,0 +1,35 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+{% block 'title' %}Create Account{% endblock %}
+
+{% block 'content' %}
+
+	<h1>Create an Account</h1>
+	<br>
+	<br>
+	<br>
+
+	<form action="{% url 'accounts:create' %}" method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		<p>
+			<input type="submit" value="Create">
+		</p>
+		<p>
+			<a href="{% url 'login' %}">
+				<input type="button" value="Cancel">
+			</a>
+		</p>
+	</form>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+
+{% endblock %}
+

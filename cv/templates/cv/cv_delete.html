@@ -1,0 +1,33 @@
+{% block 'content' %}
+
+<h1>Confirm Delete CV</h1>
+<br>
+<br>
+<br>
+
+<p>Are you sure you want to delete the CV for "{{ cv.name }}"?</p>
+<form action="{% url 'cv:delete_cv' cv.pk %}" method="POST">
+
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger" href="{% url 'cv:cv_list' %}">Delete</button>
+  <!-- <p>
+    <a href="{% url 'cv:cv_list' %}" >
+            <input type="button" value="No">
+        </a>
+    </p>
+    <p>
+        <input type="submit" value="Yes">
+    </p> -->
+     
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}
+
+
+

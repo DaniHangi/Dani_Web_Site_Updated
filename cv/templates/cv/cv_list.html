@@ -1,0 +1,68 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+
+{% block 'content' %}
+
+<h1>List of CVs</h1>
+<br>
+<br>
+<br>
+<p>
+  <a href="{% url 'cv:add_cv' %}">
+    <button>Add a cv</button>
+  </a>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Download CV</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cv in cv_list %}
+    <tr>
+      <td>{{ cv.name }}</td>
+      <td>{{ cv.email }}</td>
+      
+      {% if cv.cv_file %}
+      <td><a href="{{ cv.cv_file.url }}" download="">Download</a></td>
+      <p>File URL: {{ cv.cv_file.url }}</p>  
+      {% else %}
+      <td>No CV file uploaded</td>
+      {% endif %}
+
+      <td><a href="{% url 'cv:edit_cv' cv.pk %}">Edit</a></td>
+      <td><a href="{% url 'cv:delete_cv' cv.pk %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   
+   
+{% endblock %}
+
+

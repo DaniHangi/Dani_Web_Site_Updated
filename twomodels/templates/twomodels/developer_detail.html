@@ -1,0 +1,44 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+
+{% block 'content' %}
+<h1>Details</h1>
+<br>
+<br>
+<br>
+<em><h1>{{developer.name}}</h1></em>
+<br>
+
+{% if developer.image %}
+<img  src="{{ developer.image.url }}">
+{% else %}
+<p>No image available for this developer.</p>
+{% endif %}
+
+
+<p>{{ developer.biography }}</p>
+
+<h2>Edit Developer Information</h2>
+<a href="{% url 'twomodels:edit-developer' developer.pk %}">Edit developer</a>
+
+
+{% if developer.phone_number or developer.website_url %}
+    <h2>Contact</h2>
+    {% if developer.phone_number %}
+        <p>Phone: {{ developer.phone_number }}</p>
+    {% endif %}
+    {% if developer.website_url %}
+        <p>Website: <a href="{{ developer.website_url }}">{{ developer.website_url }}</a></p>
+    {% endif %}
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+   
+   
+{% endblock %}
+

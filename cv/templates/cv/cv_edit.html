@@ -1,0 +1,29 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+
+{% block 'content' %}
+
+<h1>Edit CV</h1>
+<br>
+<br>
+<br>
+
+<form action="{% url 'cv:edit_cv' cv.pk %}" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <p>
+    <a href="{% url 'cv:cv_list' %}">Back</a>
+  </p>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   
+{% endblock %}
+
+
