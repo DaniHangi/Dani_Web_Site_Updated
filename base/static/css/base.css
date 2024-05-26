@@ -30,12 +30,9 @@ nav{
     background-color: black;
     margin: 5px 5px;
     height: auto;
+
+    
 }
-
-/* nav, .icon{
-
-    margin-left: 5px;
-} */
 
 
 
@@ -60,6 +57,7 @@ nav img{
 .nav-links{
     flex: 1;
     text-align: right;
+    /* margin-right: 5px; */
 
 }
 
@@ -190,6 +188,8 @@ nav .fa{
 }
 
 
+
+
 /*--------Cours---------*/
 
 .course{
@@ -291,6 +291,22 @@ h3{
 
 /*---------Footer----*/
 
+/* Adjust styles as needed for branding and customization */
+
+.icons {
+  text-align: center; /* Center the icons horizontally */
+}
+
+.icons a {
+  margin: 0 10px; /* Add spacing between icons */
+}
+
+.icons i {
+  font-size: 30px; /* Adjust icon size as desired */
+   /* Set icon color (optional) */
+}
+
+
 .footer{
     color: white;
     width: 100%;
@@ -334,10 +350,15 @@ h3{
     margin: auto;
     padding-top: 80px;
     padding-bottom: 50px;
+   
 }
 
 .about-us, h1{
     color: green;
+}
+
+.about-us h2 h3 h4{
+  color: black;
 }
 
 .about-col{
@@ -351,6 +372,8 @@ h3{
 
 .about-col h1{
     padding-top: 0;
+    
+
 }
 
 .about-col p{
@@ -361,96 +384,57 @@ h3{
 
 /*-------------contact page --------------*/
 
-.comment-box{
+.contact-form {
+    width: 50%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the div horizontally */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .contact-form h1 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  
+  
+  .contact-form label {
+    display: block; /* Display labels on their own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%; /* Make input fields full width */
+    padding: 10px;
     border: 1px solid #ccc;
-    margin: 50px 0;
-    padding: 10px 20px;
-    background-color: black;
-    
-    
-    
-}
-.location{
-    width: 80%;
-    margin: 100%;
-    padding: 80px 0px;
-}
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-form button {
+    background-color: #007bff; /* Example color */
+    border-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0069d9;
+  }
 
-.location iframe{
-    width: 100%;
-}
+  .contact-form{
+    background-color: #ddd;
 
-.contact-us{
-    width: 80%;
-    margin: auto;
-}
-
-.contact-col{
-    flex-basis: 48%;
-    margin-bottom: 30px;
-
-}
-
-.contact-col div{
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.row-contact{
-    flex-direction: column;
-    
-
-}
-
-
-.contact-col div .fa{
-    font-size: 28px;
-    color: #f44336;
-    margin: 10px;
-    margin-right: 30px;
-}
-
-
-.contact-col div p{
-    padding: 0px;
-    
-}
-
-.contact-col div h5{
-    font-size: 20px;
-    padding-bottom: 5px;
-    color: #555;
-    font-weight: 400px;
-}
-
-
-.contact-col input, .contact-col textarea{
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 17px;
-    outline: none;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-
-
-
-
-.contact-col form .hero-btn{
-    background-color: green;
-    color: black;
-    margin: 0 0 5px 5px;
-    
-
-}
-
-.contact-col form .hero-btn:hover{
-    background-color: green;
-    color: white;
-}
-
+  }
+  
 
 
 /*----------------------- Blog_content ----------------------------*/
@@ -550,6 +534,15 @@ h3{
     background-color: green;
 }
 
+.course .row .div{
+  border-radius: 20%;
+}
+
+.div-image-developer .img-div img{
+  width : 15%
+   
+} 
+
 .course-col .class-pdf a{
     color: white;
 }
@@ -566,6 +559,446 @@ h3{
 
 
 
+.header .links-log{
+    
+    text-align: right;
+    background-color: white;
+    color: white;
+    margin-right: 120px;
+    
+}
+
+
+
+
+/* ------------Login------------ */
+
+
+.login-container {
+    width: 400px; /* Adjust width as needed */
+    margin: 50px auto; /* Center the container */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: black;
+  }
+
+
+  .login-container {
+    /* Existing styles... */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  h1, label {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  /* -----------------Progile------------------ */
+
+  .profile-container {
+    width: 400px; /* Adjust width as needed */
+    margin: 50px auto; /* Center the container */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center; /* Center content horizontally within the container */
+    background-color: #f5f5f5;
+  }
+  
+  .profile-actions {
+    margin-top: 20px; /* Add some space after profile information */
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+  }
+  
+  .profile-actions button {
+    margin: 5px; /* Add spacing between buttons */
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  button, input{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+
+  /* -------------------changeProgile------------------ */
+
+
+  .edit-profile-container {
+    width: 400px; /* Adjust width as needed */
+    margin: 50px auto; /* Center the container */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-top: 20px; /* Add some space above the buttons */
+    text-align: center; /* Center buttons horizontally */
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Add some spacing between buttons */
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background-color: #777;
+    color: #fff;
+  }
+  
+  .btn:hover {
+    opacity: 0.8; /* Add a hover effect */
+  }
+
+  
+  /* ----------------ChangePassword------------- */
+  .change-password-container {
+    width: 400px; /* Adjust width as needed */
+    margin: 50px auto; /* Center the container horizontally */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+
+
+
+  /* -----------cvlist------------ */
+  .cv-list {
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the div horizontally */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .cv-list h1 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .cv-list table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif; /* Choose a preferred font family */
+    font-size: 16px; /* Adjust font size for readability */
+  }
+  
+  .cv-list th, .cv-list td {
+    padding: 15px; /* Increase cell padding for better spacing */
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .cv-list th {
+    background-color: #f5f5f5; /* Light gray background for headers */
+    font-weight: bold; /* Bold text for headers */
+  }
+  
+  .cv-list a {
+    color: #007bff; /* Blue color for links */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .cv-list a:hover {
+    text-decoration: underline; /* Underline links on hover */
+  }
+  
+  .cv-list button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cv-list button:hover {
+    background-color: #0069d9;
+  }
+  
+  /* Optional: Styling for empty CV file cell */
+  .cv-list .no-cv-file {
+    color: #ccc;
+    font-style: italic;
+  }
+  
+
+  /* ------------Edit cv------------- */
+
+  .cv-edit-form {
+    width: 60%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the div horizontally */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .cv-edit-form h1 {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  
+  
+  .cv-edit-form label {
+    display: block; /* Display labels on their own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .cv-edit-form input[type="text"],
+  .cv-edit-form input[type="email"],
+  .cv-edit-form select,
+  .cv-edit-form textarea {
+    width: 100%; /* Make input fields full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  
+  .cv-edit-form .btn-primary {
+    /* Assuming you're using Bootstrap for button styles */
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+  }
+  
+  .cv-edit-form a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .cv-edit-form a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  /* --------------Detail dev colaborateur------------- */
+
+  /* Adjust styles as needed for branding and customization */
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.developer-details-wrapper {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Optional padding for outer wrapper */
+  background-color: #f5f5f5; /* Light background color */
+  border-radius: 5px; /* Optional rounded corners for outer wrapper */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.developer-details {
+  display: flex; /* Arrange info and actions side-by-side */
+  flex-direction: column; /* Arrange items vertically */
+  border: 1px solid #ddd; /* Optional border for the details section */
+  border-radius: 5px; /* Optional rounded corners for the details section */
+  background-color: #fff; /* White background color */
+  padding: 20px;
+  text-align: center;
+}
+
+.developer-info,
+.developer-actions {
+  flex: 1 1 auto; /* Set equal width for info and actions sections */
+  padding: 15px; /* Add padding to each section */
+}
+
+.developer-name {
+  text-align: center; /* Center the developer name */
+  margin-bottom: 15px;
+}
+
+.developer-image {
+  display: block; /* Display image on its own line */
+  margin: 0 auto 15px auto; /* Center the image and add bottom margin */
+  width: 200px; /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+  border: 1px solid #ddd; /* Optional border for the image */
+  border-radius: 5px; /* Optional rounded corners for the image */
+}
+
+.developer-bio {
+  font-size: 16px; /* Adjust font size for readability */
+  line-height: 1.5; /* Improve readability with line spacing */
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-top: 20px; /* Space above headings */
+}
+
+.developer-details a {
+  color: #007bff; /* Blue color for links */
+  text-decoration: none;
+}
+
+.developer-details a:hover {
+  text-decoration: underline;
+}
+
+
+.edit-developer-form {
+  max-width: 600px; /* Adjust width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;  
+  flex-direction: column;
+  /* text-align: center; */
+
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0; /* Remove top margin for better alignment */
+}
+
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Add more styles as needed */
 
 
 

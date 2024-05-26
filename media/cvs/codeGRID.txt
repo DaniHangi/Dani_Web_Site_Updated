@@ -1,0 +1,112 @@
+package gridworld;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import gridworld.GridAgent.Action;
+import gridworld.GridEnvironment.Square;
+import simulations.Coord;
+
+public class GoalBasedAgent implements GridAgent {
+	/**
+	 * GoalBasedAgent
+	 * Will seek and eat food that is visible 
+	 * Otherwise, it chooses a random goal direction and travels
+	 *   in that direction until it hits a wall
+	 */
+
+    private Coord goal; 
+
+    
+	public GoalBasedAgent() {
+		goal = null;
+		
+	}
+
+
+
+	public Action chooseAction(Percept percept) {
+		
+	    if (percept.square == Square.FOOD) {
+	//    	goal = chooseRandomGoal(percept);
+	        return Action.EAT;
+	    }
+//	    else if(canMoveTowardsGoal(percept) & moveTowardsGoal(goal,percept) != Action.NONE) {
+//	    	System.out.println("Yes! It can move");
+//	    }
+	    else if(percept.east == Square.WALL) {
+	    	goal = chooseRandomGoal(percept);
+	    }
+		 else if(percept.north == Square.WALL) {
+			 goal = chooseRandomGoal(percept);
+		    }
+		 else if(percept.west == Square.WALL) {
+			 goal = chooseRandomGoal(percept);
+		 }
+		 else if(percept.south == Square.WALL) {
+			 goal = chooseRandomGoal(percept);
+		 }
+	
+	    // If no food, move towards the goal or choose a new goal
+	    if (goal == null || !canMoveTowardsGoal(percept)) {
+	        goal = chooseRandomGoal(percept);
+	    }
+	    System.out.printf("DEBUG direction : curPos : { %d , %d } \n", percept.pos.row, percept.pos.col);
+	    return moveTowardsGoal(goal, percept);
+	}
+	
+	// Returns a random goal direction that's not a wall
+	private Coord chooseRandomGoal(Percept percept) {
+	    Action possibleActions [] = {Action.NORTH, Action.EAST, Action.SOUTH, Action.WEST};
+	    int randChoice = (int)(Math.random() * possibleActions.length);
+	    Action randomAction = possibleActions[randChoice];
+	    
+	    Coord currentPosition = percept.pos;
+	    switch (randomAction) {
+	        case NORTH:
+	            return new Coord(currentPosition.row - 1 , currentPosition.col);
+	        case SOUTH:
+	            return new Coord(currentPosition.row + 1, currentPosition.col);
+	        case EAST:
+	            return new Coord(currentPosition.row , currentPosition.col + 1);
+	        case WEST:
+	            return new Coord(currentPosition.row, currentPosition.col - 1);
+	        default:
+	            return null; // Should not happen
+	    }
+	}
+	
+	// Returns the action to move towards the goal if possible
+	private Action moveTowardsGoal(Coord goal, Percept percept) {
+	    Coord currentPosition = percept.pos;
+	    if (goal.row > currentPosition.row) {
+	        return Action.EAST;
+	    } else if (goal.row < currentPosition.row) {
+	        return Action.WEST;
+	    } else if (goal.col > currentPosition.col) {
+	        return Action.SOUTH;
+	    } else if (goal.col < currentPosition.col) {
+	        return Action.NORTH;
+	    } else {
+	        // Reached the goal, set it to null
+	        this.goal = null;
+	        return Action.NONE;
+	    }
+	}
+	
+	// Checks if a move towards the goal is possible
+	private boolean canMoveTowardsGoal(Percept percept) {
+	    List<Action> possibleActions = new ArrayList<>();
+	    possibleActions.add(Action.NORTH);
+	    possibleActions.add(Action.EAST);
+	    possibleActions.add(Action.WEST);
+	    possibleActions.add(Action.SOUTH);
+	    
+	    Action moveTowardsGoal = moveTowardsGoal(goal, percept);
+	    
+	    return possibleActions.contains(moveTowardsGoal);
+	}
+
+}
+

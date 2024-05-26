@@ -1,68 +1,91 @@
 {% extends 'base-template.html' %}
 {% load static %}
 
-
 {% block 'content' %}
+<div class="cv-list">
+  <h1>cvs</h1>
+  <hr>
+  <br>
+  <br>
+  <br>
+  <p>
+    <a href="{% url 'cv:add_cv' %}">
+      <button>Add a cv</button>
+    </a>
+  </p>
+  <br>
 
-<h1>List of CVs</h1>
-<br>
-<br>
-<br>
-<p>
-  <a href="{% url 'cv:add_cv' %}">
-    <button>Add a cv</button>
-  </a>
-</p>
+  <table border>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Summary</Summary></th>
+        <th>Download CV</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cv in cvs_pagination %}
+      <tr>
+        <td>{{ cv.name }}</td>
+        <td>{{ cv.email }}</td>
+        <td>{{ cv.summary }}</td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Download CV</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for cv in cv_list %}
-    <tr>
-      <td>{{ cv.name }}</td>
-      <td>{{ cv.email }}</td>
-      
-      {% if cv.cv_file %}
-      <td><a href="{{ cv.cv_file.url }}" download="">Download</a></td>
-      <p>File URL: {{ cv.cv_file.url }}</p>  
-      {% else %}
-      <td>No CV file uploaded</td>
-      {% endif %}
+        {% if cv.cv_file %}
+        <td><a href="{{ cv.cv_file.url }}">Download</a></td>
+        {% else %}
+        <td>No CV file uploaded</td>
+        {% endif %}
 
-      <td><a href="{% url 'cv:edit_cv' cv.pk %}">Edit</a></td>
-      <td><a href="{% url 'cv:delete_cv' cv.pk %}">Delete</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-   
-   
+        <td>
+          {% if perms.cv.change_cv %}
+          <a href="{% url 'cv:edit_cv' cv.pk %}">Edit</a>
+          {% endif %}
+        </td>
+        <td>
+          {% if perms.cv.delete_cv %}
+          <a href="{% url 'cv:delete_cv' cv.pk %}">Delete</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <!-- {{ cvs }} -->
+  <br>
+  <!-- Has previous Page : {{ cvs_pagination.has_previous}}
+  <br>
+  Has previous Page : {{ cvs_pagination.has_next}}
+  <br>
+  Current Page : {{ cvs_pagination.number }}
+  <br>
+  Number of Pages : {{ cvs_pagination.paginator.num_pages}}
+  <br> -->
+  <hr>
+
+  {% if cvs_pagination.has_previous %}
+  <a href="?page=1">&laquo First</a>
+  <a href="?page={{ cvs_pagination.previous_page_number }}">Previous</a>
+{% endif %}
+
+
+Page {{ cvs_pagination.number }} of {{ cvs_pagination.paginator.num_pages }}
+
+ 
+{%if cvs_pagination.has_next %}
+  <a href="?page={{ cvs_pagination.next_page_number }}">Next</a>
+  <a href="?page={{ cvs_pagination.paginator.num_pages }}">Last &raquo</a>
+{% endif %}
+
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
 {% endblock %}
-
-

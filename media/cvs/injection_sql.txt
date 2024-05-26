@@ -1,0 +1,8 @@
+PRESENTATION EN SECURITE INFORMATIQUE
+
+
+***INJECTIONS SQL
+***OUTILS:
+	db-fiddle.com
+	Owasp pour les tests
+	hackingvision.com

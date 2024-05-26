@@ -1,25 +1,14 @@
 {% extends 'base-template.html' %}
 {% load static %}
 
-
 {% block 'content' %}
-<h1>Edit Developer Information</h1>
-<br>
-<br>
-<br>
-    <form action="{% url 'twomodels:edit-developer' developer.pk %}" method="post" enctype="multipart/form-data">  
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Changes</button>
-    </form>
-    
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="edit-developer-form">
+  <h1>Edit Developer Information</h1>
+  <br>
+  <form action="{% url 'twomodels:edit-developer' developer.pk %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
 {% endblock %}
-
-

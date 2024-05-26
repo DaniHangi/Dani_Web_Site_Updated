@@ -6,7 +6,7 @@ from django.core.exceptions import PermissionDenied
 
 from .forms import UserChangeForm
 
-# @login_required
+@login_required
 def user_profile(request):
     return render(request, 'registration/profile.html')
 
@@ -19,15 +19,14 @@ def create_account(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            # print("=======================================>", user)
+            form.save()
             return redirect('login')
     else:
         form = UserCreationForm()
 
     return render(request, 'registration/create_account.html', { 'form': form })
 
-# @login_required
+@login_required
 def change_profile(request):
     if request.method == "POST":
         form = UserChangeForm(request.POST, instance=request.user)

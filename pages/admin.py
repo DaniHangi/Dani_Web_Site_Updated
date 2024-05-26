@@ -1,3 +1,7 @@
-from django.contrib import admin # type: ignore
+from django.contrib import admin  # type: ignore
 
-# Register your models here.
+# import the models
+from .models import *
+
+# register each model with the admin site
+admin.site.register(ContactRequest)

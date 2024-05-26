@@ -12,17 +12,30 @@
         </nav>
         
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt accusamus molestiae deleniti ratione sapiente! Harum fuga ducimus ut fugiat quasi natus quisquam quos suscipit dolorem possimus, commodi excepturi placeat autem!</p>
+        
+
 
 
         <div class="row">
             <div class="course-col">
+
+                <!-- {%for dev in developers%}
+                {{dev.name}}
+                {%endfor%} -->
+
+                
                 
 
                 <h3>ZakoApp</h3>
-                <h1>{{developer.name}}</h1>
-                <h1>{{developer.dev_id}}</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis saepe magni dicta ea consequuntur omnis laborum atque, nesciunt nisi non nam nobis qui aliquid voluptatibus consequatur hic! Error, non dolores?</p>
+                <hr>
+                <!-- <h1>{{developer.name}}</h1>
+                <h1>{{developer.dev_id}}</h1> -->
+                <img src="{% static 'pages/img/boutique.png' %} " alt="" width="90%">
+                <br>
+                <br>
+                <br>
                 <div class="class-pdf"><a href="{% url 'pages:contact' %}">PDF Document</a></div>
+                <!-- {{developer.name}} -->
                 <hr>
                 <br>
                 <div class="class-pdf"><a href="{%  url 'twomodels:developer-detail' developer.dev_id %}">My colaborator's profile</a></div>
@@ -33,14 +46,37 @@
             
             <div class="course-col">
                 <h3>Laloca</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis saepe magni dicta ea consequuntur omnis laborum atque, nesciunt nisi non nam nobis qui aliquid voluptatibus consequatur hic! Error, non dolores?</p>
+                <hr>
+                <!-- <h1>{{developer.name}}</h1>
+                <h1>{{developer.dev_id}}</h1> -->
+                <img src="{% static 'pages/img/locationmaison.jpg' %} " alt="" width="90%">
+                <br>
+                <br>
+                <br>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis saepe magni dicta ea consequuntur omnis laborum atque, nesciunt nisi non nam nobis qui aliquid voluptatibus consequatur hic! Error, non dolores?</p> -->
                 <div class="class-pdf"><a href="{% url 'pages:contact' %}">PDF Document</a></div>
                 <hr>
+                <br>
+                <div class="class-pdf"><a href="{%  url 'twomodels:developer-detail' developer.dev_id %}">My colaborator's profile</a></div>
+
+                <hr>
             </div>
+           
             <div class="course-col">
                 <h3>E-Wallet</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis saepe magni dicta ea consequuntur omnis laborum atque, nesciunt nisi non nam nobis qui aliquid voluptatibus consequatur hic! Error, non dolores?</p>
+                <hr>
+                <!-- <h1>{{developer.name}}</h1>
+                <h1>{{developer.dev_id}}</h1> -->
+                <img src="{% static 'pages/img/wallet.jpg' %} " alt="" width="90%">
+                <br>
+                <br>
+                <br>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis saepe magni dicta ea consequuntur omnis laborum atque, nesciunt nisi non nam nobis qui aliquid voluptatibus consequatur hic! Error, non dolores?</p> -->
                 <div class="class-pdf"><a href="{% url 'pages:contact' %}">PDF Document</a></div>
+                <hr>
+                <br>
+                <div class="class-pdf"><a href="{%  url 'twomodels:developer-detail' developer.dev_id %}">My colaborator's profile</a></div>
+
                 <hr>
             </div>
         </div>

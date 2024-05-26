@@ -1,0 +1,66 @@
+Configuration pour le projet portfolio Dani_Portfolio_WebSite
+
+
+
+*******PassWord por entrer dans mysql : ___daniroot2000___
+*******
+	leave blank to use 'danih': ___daniroot___
+	email: danihangikasereka9@gmail.com
+	password: ____daniroot2@@@____
+*******daniroot2000: for mysql acount password
+
+
+***********admin 
+	username: daniroot2000
+	password: daniroot2000
+
+
+
+
+**********database
+
+CREATE DATABASE db_dani;
+SHOW DATABASES;
+CREATE USER 'dani_user'@'localhost' IDENTIFIED BY 'dani123';
+GRANT ALL PRIVILEGES ON db_dani.* TO 'dani_user'@'localhost';
+FLUSH PRIVILEGES
+
+
+
+
+'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : 'db_dani',
+        'USER' : 'dani_user',
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST' : 'localhost',
+        'PORT' : '3307',
+
+
+
+********superuser ou admin
+adresse_emai=danihangikasereka9@gmail.com
+username = "dani"
+password = dani123
+
+pip install --upgrade <library_name>
+
+
+
+ python manage.py startapp cv 
+
+
+
+from django.contrib import admin
+# import the models
+from .models import *
+# register each model with the admin site
+admin.site.register(CV)
+
+
+
+ # path('<int:pk>/edit/', views.cv_edit, name='edit_cv'),
+
+<!-- <td><a href="{% url 'edit_cv' cv.pk %}">Edit</a></td> -->
+<!-- <td><a href="{{ cv.cv_file.url }}">Download</a></td> -->
+
+pip install --upgrade django==5.0.6

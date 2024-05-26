@@ -5,34 +5,18 @@
 
 {% block 'content' %}
 
-	<h1>Edit Profile {{ user.username }}</h1>
-	<br>
-	<br>
-	<br>
+<div class="edit-profile-container">
+  <h1>Edit Profile {{ user.username }}</h1>
 
-	<form action="{% url 'accounts:change-profile' %}" method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
+  <form action="{% url 'accounts:change-profile' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
 
-		<p>
-			<input type="submit" value="Submit">
-		</p>
-		<p>
-			<a href="{% url 'accounts:profile' %}">
-				<input type="button" value="Cancel">
-			</a>
-		</p>
-	</form>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	
+    <div class="form-group">
+      <input type="submit" value="Submit" class="btn btn-primary">
+      <a href="{% url 'accounts:profile' %}" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
+
 {% endblock %}
-

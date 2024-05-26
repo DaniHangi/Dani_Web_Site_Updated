@@ -15,28 +15,42 @@
 <body>
     <section class="nav-section">
         <nav>
-            <a href="{% url 'pages:home' %}"><img src="{% static 'pages/img/web-icon.png' %} " alt=""></a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="{% url 'pages:home' %}">HOME</a></li>
-                    <li><a href="{% url 'pages:about' %}">ABOUT-ME</a></li>
-                    <li><a href="{% url 'pages:services' %}">SERVICES</a></li>
-                    <li><a href="{% url 'pages:contact' %}">CONTACT</a></li>
-                    
-                    
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
+          <a href="{% url 'pages:home' %}"><img src="{% static 'pages/img/web-icon.png' %} " alt=""></a>
+          <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+              <li><a href="{% url 'pages:home' %}">HOME</a></li>
+              <li><a href="{% url 'pages:about' %}">ABOUT-ME</a></li>
+              <li><a href="{% url 'pages:services' %}">SERVICES</a></li>
+              <li><a href="{% url 'pages:contact' %}">CONTACT</a></li>
+              <br>
+              <br>
+              <li>
+                <form action="{% url 'cv:cv_list' %}" method="get">
+                  <label for="search_query" class="sr-only"></label>
+                  <input type="text" id="search_query" name="search_query"  placlass="form-control-sm" placeholder="CV ">
+                  <button type="submit" class="btn btn-sm btn-primary">Search</button>
+                </form>
+              </li>
+              </ul>
+          </div>
+          <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-    </section>
+      </section>
+      
+      
     {% block 'content' %}
     {% endblock %}
 
     <!-----------Footer--------->
+<footer>
 
+</footer>
     <section class="footer">
-        <h4>My Web Site</h4>
+      
+        <!-- <h4>My Web Site</h4> -->
+        <br>
+        <br>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
              Quod nulla nihil libero itaque vero porro fugiat inventore 
             quibusdam veritatis, et, <br>deleniti velit exercitationem rerum 
@@ -53,8 +67,8 @@
         </div>
         <div class="social-icons">
            
-          </div>
-        <p>Site Made and Created by Ir Dani Hangi. Copyright ©2024, All rights reserved.</p>
+        </div>
+        <p>Site Made, Created and Managed by Ir Dani Hangi. Copyright ©2024</p>
         
 
     </section>
@@ -78,6 +92,7 @@
             navLinks.style.right="-200px";
         }
     </script>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-OgqUQ10ByIDABHl6fc+/+BQvfbIEiRD5lwLHWsSLLLdCEHrXLSyOB Uw1RCKSX8vQ" crossorigin="anonymous"></script>

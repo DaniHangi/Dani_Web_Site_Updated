@@ -1,53 +1,29 @@
 {% extends 'base-template.html' %}
 {% load static %}
 
-
 {% block 'content' %}
-   
-    <section class="contact-content">
-        
-        <div class="contact-left">
-            <div class="contact-box">
-                <h3>CONTACT</h3>
-                <hr>
-                <br>
-                <br>
-                <form class="contact-form">
-                    <label for="fullname">Full_Name</label>
-                    <br>
-                    <input type="text" placeholder="Enter Name" name="fullname" id="fullname" required>
-                    <br>
-                    <label for="email">Email</label>
-                    <br>
-                    <input type="email" placeholder="Enter Email" name="email" id="email" required>
-                    <br>
-                    <label for="textarea">Message</label>
-                    <br>
-                    <textarea rows="10"  placeholder="Your message here" name="textarea" id="textarea"></textarea>
-                    <br>
-                    <label>What is 2 * 3? (Please solve in order to send):</label>
-                    <br>
-                    <br>
-            
-                    <select id="myDropdown">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                
-                    <br>
-                    <br>
-                    <br>
-                   
-                    <button type="submit" class="hero-btn red-btn">Send</button>
-                </form>
-            </div>
-        </div>       
-    </section>
+<div class="contact-form">
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h1>CONTACT</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send Message</button>
+  </form>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
 {% endblock %}
-
-
-

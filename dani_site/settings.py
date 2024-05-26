@@ -29,7 +29,39 @@ SECRET_KEY = 'django-insecure-na9ft$3fjkww^l7wjz-&q2q!l=9#otd4i_+73s3**^$^4%h^sc
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# SITE_ID = 1
 
+# AUTHENTICATION_BACKENDS = [
+
+#     'django.contrib.auth.backends.ModelBackend', 
+#     'allauth.account.auth_backends.AuthenticationBackend',
+                           
+# ]
+
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# AUTHENTICATION_BACKENDS = [
+#     # ... other backends
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+#     'allauth.socialaccount.auth_backends.SocialAccountAuthBackend',
+# ]
+
+
+SOCIALAUTH_FACEBOOK_KEY = 'YOUR_FACEBOOK_APP_ID'
+SOCIALAUTH_FACEBOOK_SECRET = 'YOUR_FACEBOOK_APP_SECRET'
+# SOCIALAUTH_FACEBOOK_SCOPE = ['email']  # Request additional user data (optional)
+SOCIALAUTH_FACEBOOK_AUTH_URL = 'https://www.facebook.com/dialog/oauth'  # Facebook authentication URL
+
+# SOCIALAUTH_LOGIN_REDIRECT_URL = '/'  # Redirect URL after login
+# SOCIALAUTH_LOGOUT_REDIRECT_URL = '/'  # Redirect URL after logout
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '45c1663876cb82'
+EMAIL_HOST_PASSWORD = '********42c6'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -45,6 +77,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.github',
+
 ]
 
 MIDDLEWARE = [
@@ -55,6 +94,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'dani_site.urls'
@@ -71,10 +111,23 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request', 
             ],
         },
     },
 ]
+
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     'github':{
+#         'APP':{
+
+#             'client_id':'125',
+#             'secret': '456',
+#             'key':''
+#         }
+#     }
+# }
 
 WSGI_APPLICATION = 'dani_site.wsgi.application'
 
@@ -82,17 +135,24 @@ WSGI_APPLICATION = 'dani_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME' : 'db_dani',
-        'USER' : 'dani_user',
-        'PASSWORD': DATABASE_PASSWORD,
-        'HOST' : 'localhost',
-        'PORT' : '3307',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME' : 'db_dani',
+#         'USER' : 'dani_user',
+#         'PASSWORD': DATABASE_PASSWORD,
+#         'HOST' : 'localhost',
+#         'PORT' : '3307',
+#     }
+# }
 
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.sqlite3',
+'NAME': BASE_DIR / 'db.sqlite3',
+}
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -116,7 +176,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 
@@ -131,9 +191,11 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = ['static']
-MEDIA_URL = 'dev_images/'  # URL prefix for media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'dev_images/')  # Path to the media directory
+
+
+MEDIA_URL = '/media/'  # Replace with your actual media URL if different
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Replace BASE_DIR with your project's base directory
+
 
 
 # Default primary key field type
@@ -146,7 +208,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 
 
